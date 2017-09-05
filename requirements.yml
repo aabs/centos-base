@@ -1,8 +1,8 @@
 ---
-- src: DavidWittman.filebeat
-- src: nickhammond.logrotate
-- src: williamyeh.prometheus
+#- src: DavidWittman.filebeat
+#- src: nickhammond.logrotate
+#- src: williamyeh.prometheus
 # - src: William-Yeh.es_cluster_exporter
-- src: savagegus.consul
-- src: mongrelion.docker
-- src: MindPointGroup.RHEL7-CIS
+#- src: savagegus.consul
+#- src: mongrelion.docker
+#- src: jacob-hudson.ansible-role-cis
