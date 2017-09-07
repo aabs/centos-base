@@ -5,7 +5,7 @@
 	"builders":[ {
       "type": "virtualbox-iso",
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos7-cis.ks<enter><wait>"
       ],
       "boot_wait": "10s",
       "disk_size": 81920,
@@ -18,7 +18,7 @@
       ],
       "iso_checksum_type": "sha256",
       "iso_checksum": "27bd866242ee058b7a5754e83d8ee8403e216b93d130d800852a96f41c34d86a",
-      "ssh_username": "vagrant",
+      "ssh_username": "root",
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
@@ -52,23 +52,6 @@
 			"type": "shell",
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "script": "scripts/docker-install.sh"
-		},
-		{
-			"type": "shell",
-			"inline":[
-				"mkdir -p /tmp/ansible"
-			]
-		},
-		{
-		  "type": "file",
-		  "source": "./ansible/",
-		  "destination": "/tmp/ansible/",
-			"direction": "upload"
-		},
-		{
-			"type": "shell",
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "script": "scripts/cis-ansible.sh"
 		}
 	],
 	"post-processors": [

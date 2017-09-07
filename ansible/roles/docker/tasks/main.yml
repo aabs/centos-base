@@ -1,0 +1,40 @@
+---
+- name: remove docker
+  yum: name=docker state=removed
+
+- name: remove docker-common
+  yum: name=docker-common state=removed
+
+- name: remove docker-selinux
+  yum: name=docker-selinux state=removed
+
+- name: remove docker-engine
+  yum: name=docker-engine state=removed
+
+- name: install yum-utils
+  yum: name=yum-utils state=latest
+
+- name: install device-mapper-persistent-data
+  yum: name=device-mapper-persistent-data state=latest
+
+- name: install lvm2
+  yum: name=lvm2 state=latest
+
+- name: add docker package repo
+  inline: [
+       "yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"
+     , "yum update"
+  ]
+
+- name: install docker
+  yum: name=docker-ce state=latest
+
+- name: start docker
+  inline: [
+    "systemctl start docker"
+  ]
+
+- name: test docker
+  inline: [
+      "docker version"
+  ]

@@ -14,3 +14,28 @@ You will also need to do the following:
 
 - Add yourself to the `Hyper-V Administrators` group on your machine
 - Run the VS Command Prompt as Administrator
+
+
+# temporary dumping ground
+
+```json
+
+{
+  "type": "shell",
+  "inline":[
+    "mkdir -p /tmp/ansible"
+  ]
+},
+{
+  "type": "file",
+  "source": "./ansible/",
+  "destination": "/tmp/ansible/",
+  "direction": "upload"
+},
+{
+  "type": "shell",
+  "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+  "script": "scripts/cis-ansible.sh"
+}
+
+```
