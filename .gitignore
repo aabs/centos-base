@@ -1,5 +1,11 @@
 # Cache objects
+builds/
 packer_cache/
+output-virtualbox-iso/
+
 
 # For built boxes
 *.box
+.DS_Store
+node_modules/
+package-lock.json

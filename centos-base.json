@@ -1,5 +1,6 @@
 {
 	"variables": {
+		  "output_name":"{{timestamp}}"
 	},
 	"builders":[ {
       "type": "virtualbox-iso",
@@ -46,12 +47,39 @@
       "type": "shell",
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "script": "scripts/ansible.sh"
-    }
+    },
+		{
+			"type": "shell",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "scripts/docker-install.sh"
+		},
+		{
+			"type": "shell",
+			"inline":[
+				"mkdir -p /tmp/ansible"
+			]
+		},
+		{
+		  "type": "file",
+		  "source": "./ansible/",
+		  "destination": "/tmp/ansible/",
+			"direction": "upload"
+		},
+		{
+			"type": "shell",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "scripts/cis-ansible.sh"
+		}
 	],
 	"post-processors": [
 		{
-			"output": "builds/{{.Provider}}-centos7.box",
+			"output": "builds/{{.Provider}}-centos7-{{user `output_name`}}.box",
 			"type": "vagrant"
-		}
+		},
+		{
+      "type": "manifest",
+      "output": "builds/centos7-{{user `output_name`}}.manifest.json",
+      "strip_path": true
+    }
 	]
 }
