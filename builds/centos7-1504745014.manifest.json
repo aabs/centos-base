@@ -1,0 +1,22 @@
+{
+  "builds": [
+    {
+      "name": "virtualbox-iso",
+      "builder_type": "virtualbox-iso",
+      "build_time": 1504745479,
+      "files": [
+        {
+          "name": "packer-centos-7-x86_64-disk001.vmdk",
+          "size": 811144192
+        },
+        {
+          "name": "packer-centos-7-x86_64.ovf",
+          "size": 6773
+        }
+      ],
+      "artifact_id": "VM",
+      "packer_run_uuid": "09d4ef3a-1537-77b4-7f49-baa15dc83570"
+    }
+  ],
+  "last_run_uuid": "09d4ef3a-1537-77b4-7f49-baa15dc83570"
+}
