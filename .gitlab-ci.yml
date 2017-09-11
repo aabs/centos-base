@@ -1,0 +1,3 @@
+build:
+  script:
+    packer build -only=virtualbox-iso -color=true centos-base.json
