@@ -1,7 +1,17 @@
 {
 	"variables": {
 	},
-	"builders":[ {
+	"builders":[
+    {
+      "type": "hyperv-iso",
+      "iso_url": "http://ftp.swin.edu.au/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso",
+      "iso_checksum": "27bd866242ee058b7a5754e83d8ee8403e216b93d130d800852a96f41c34d86a",
+      "iso_checksum_type": "sha256",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now"
+    },
+    {
       "type": "virtualbox-iso",
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
@@ -49,9 +59,13 @@
     }
 	],
 	"post-processors": [
-		{
-			"output": "builds/{{.Provider}}-centos7.box",
+    {
+			"output": "builds/virtualbox-centos7.box",
 			"type": "vagrant"
-		}
+		},
+    {
+      "type": "shell-local",
+      "script": "scripts/convert-vbox-to-hyperv.sh"
+    }
 	]
 }

@@ -1,6 +1,7 @@
 SRC=centos-base.json
 CC=packer
 CCFLAGS=-only=virtualbox-iso -color=true
+# CCFLAGS= -color=true
 all: build
 
 build: validate
@@ -8,3 +9,7 @@ build: validate
 
 validate:
 	$(CC) validate $(SRC)
+
+clean:
+	rm builds/*.json
+	rm builds/*.box
