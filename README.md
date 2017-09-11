@@ -12,5 +12,5 @@ You will need to install:
 
 You will also need to do the following:
 
-- Add yourself to the `Hyper-V Administrators` group on your machine
-- Run the VS Command Prompt as Administrator
+- ~Add yourself to the `Hyper-V Administrators` group on your machine~
+- ~Run the VS Command Prompt as Administrator~
