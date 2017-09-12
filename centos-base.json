@@ -64,9 +64,9 @@
 			"type": "vagrant"
 		},
     {
-      "type": "shell-local",
-      "execute_command": "Powershell.exe Move-Item {{.Script}} {{.Script}}.ps1; Powershell.exe -File {{.Script}}.ps1",
-      "script": "scripts/convert-vbox-to-vhd.ps1"
-    }
+				"type": "shell-local",
+				"execute_command": "powershell.exe -noprofile -file {{.Script}} -Artifact {{.Artifact}}",
+				"script": "scripts/convert-vbox-to-vhd.ps1"
+			}
 	]
 }
