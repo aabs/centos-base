@@ -70,8 +70,8 @@
 		},
     {
       "type": "shell-local",
-      "execute_command": "cmd.exe -c '{{.Script}}'",
-      "inline": "PowerShell.exe -File convert-vbox-to-vhd.ps1"
+      "execute_command": "Powershell.exe Move-Item {{.Script}} {{.Script}}.ps1; Powershell.exe -File {{.Script}}.ps1",
+      "script": "convert-vbox-to-vhd.ps1"
     }
 	]
 }
