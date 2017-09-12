@@ -65,8 +65,8 @@
 		},
     {
 				"type": "shell-local",
-				"execute_command": "powershell.exe -noprofile -file {{.Script}} -Artifact {{.Artifact}}",
+				"execute_command": "powershell.exe -file {{.Script}} -Artifact {{.Artifact}}",
 				"script": "scripts/convert-vbox-to-vhd.ps1"
-			}
+		}
 	]
 }
