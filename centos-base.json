@@ -65,7 +65,7 @@
 		},
     {
       "type": "shell-local",
-      "script": "scripts/convert-vbox-to-hyperv.sh"
+      "script": "scripts/convert-vbox-to-vhd.ps1"
     }
 	]
 }
