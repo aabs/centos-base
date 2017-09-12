@@ -56,6 +56,11 @@
       "type": "shell",
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "script": "scripts/install-docker.sh"
+    },
+    {
+      "type": "file",
+      "source": "scripts/convert-vbox-to-vhd.ps1",
+      "destination": "convert-vbox-to-vhd.ps1"
     }
 	],
 	"post-processors": [
@@ -65,8 +70,8 @@
 		},
     {
       "type": "shell-local",
-      "execute_command": "Powershell.exe -File '{{.Path}}'",
-      "script": "scripts/convert-vbox-to-vhd.ps1"
+      "execute_command": "cmd.exe -c '{{.Script}}'",
+      "inline": "PowerShell.exe -File convert-vbox-to-vhd.ps1"
     }
 	]
 }
