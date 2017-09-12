@@ -65,7 +65,8 @@
 		},
     {
       "type": "shell-local",
-      "inline": "Powershell.exe -File scripts/convert-vbox-to-vhd.ps1"
+      "execute_command": "Powershell.exe -File '{{.Path}}'",
+      "script": "scripts/convert-vbox-to-vhd.ps1"
     }
 	]
 }
