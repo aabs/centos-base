@@ -65,6 +65,7 @@
 		},
     {
       "type": "shell-local",
+      "execute_command": ["PowerShell.exe","-Command","{{.Command}}"],
       "script": "scripts/convert-vbox-to-vhd.ps1"
     }
 	]
